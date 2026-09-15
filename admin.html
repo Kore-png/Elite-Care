@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم - الرعاية النخبوية</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    body { font-family: 'Cairo', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+</style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm">
+        <div class="text-center mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-sky-500 to-emerald-500 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-3">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h1 class="text-xl font-bold">دخول لوحة التحكم</h1>
+            <p class="text-sm text-slate-500 mt-1">للأخصائيين فقط</p>
+        </div>
+        <input id="login-password" type="password" placeholder="كلمة المرور" class="w-full border border-slate-300 rounded-xl px-4 py-3 mb-3 focus:outline-none focus:ring-2 focus:ring-sky-400">
+        <button onclick="tryLogin()" class="w-full bg-gradient-to-r from-sky-600 to-emerald-500 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">دخول</button>
+        <p id="login-error" class="text-red-500 text-sm mt-3 text-center hidden">كلمة المرور غير صحيحة</p>
+        <a href="index.html" class="block text-center text-slate-400 text-sm mt-5 hover:text-slate-600">
+            <i class="fas fa-arrow-right ml-1"></i> رجوع للموقع
+        </a>
+    </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel" class="hidden">
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="font-bold text-lg"><i class="fas fa-sliders-h text-sky-600 ml-2"></i>لوحة التحكم</h1>
+            <div class="flex items-center gap-3">
+                <a href="index.html" target="_blank" class="text-sm text-slate-500 hover:text-slate-700"><i class="fas fa-eye ml-1"></i>عرض الموقع</a>
+                <button onclick="logout()" class="text-sm text-red-500 hover:text-red-700"><i class="fas fa-sign-out-alt ml-1"></i>خروج</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-4 py-8 space-y-8">
+
+        <div id="save-banner" class="hidden bg-emerald-500 text-white px-5 py-3 rounded-xl font-semibold text-center">
+            تم الحفظ بنجاح ✓
+        </div>
+
+        <!-- COLORS -->
+        <section class="bg-white rounded-2xl shadow-sm p-6">
+            <h2 class="font-bold text-lg mb-4"><i class="fas fa-palette text-sky-600 ml-2"></i>ألوان الموقع</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm text-slate-500 mb-1">اللون الأساسي</label>
+                    <input id="color-primary" type="color" class="w-full h-12 rounded-lg cursor-pointer border border-slate-200">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-500 mb-1">اللون الثانوي</label>
+                    <input id="color-accent" type="color" class="w-full h-12 rounded-lg cursor-pointer border border-slate-200">
+                </div>
+                <div>
+                    <label class="block text-sm text-slate-500 mb-1">اللون الذهبي</label>
+                    <input id="color-gold" type="color" class="w-full h-12 rounded-lg cursor-pointer border border-slate-200">
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">ملاحظة: تغيير الألوان هنا يؤثر على بعض عناصر الموقع (مثل التدرجات اللونية) فور الحفظ.</p>
+        </section>
+
+        <!-- SPECIALISTS -->
+        <section class="bg-white rounded-2xl shadow-sm p-6">
+            <h2 class="font-bold text-lg mb-4"><i class="fas fa-user-md text-sky-600 ml-2"></i>الأخصائيون</h2>
+            <div id="specialists-editor" class="space-y-6"></div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="bg-white rounded-2xl shadow-sm p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-lg"><i class="fas fa-list text-sky-600 ml-2"></i>الخدمات والأسعار</h2>
+                <button onclick="addService()" class="text-sm bg-sky-50 text-sky-600 px-3 py-1.5 rounded-lg hover:bg-sky-100"><i class="fas fa-plus ml-1"></i>إضافة خدمة</button>
+            </div>
+            <div id="services-editor" class="space-y-3"></div>
+        </section>
+
+        <!-- PROGRAMS -->
+        <section class="bg-white rounded-2xl shadow-sm p-6">
+            <h2 class="font-bold text-lg mb-4"><i class="fas fa-crown text-sky-600 ml-2"></i>البرامج المميزة</h2>
+            <div id="programs-editor" class="space-y-6"></div>
+        </section>
+
+        <div class="flex justify-end">
+            <button onclick="saveAll()" class="bg-gradient-to-r from-sky-600 to-emerald-500 text-white px-8 py-3.5 rounded-xl font-bold hover:shadow-lg transition-all">
+                <i class="fas fa-save ml-2"></i>حفظ كل التعديلات
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const ADMIN_PASSWORD = 'EliteCare2026'; // Change this password below
+    let siteData = null;
+
+    // ---------- Auth ----------
+    function tryLogin() {
+        const val = document.getElementById('login-password').value;
+        if (val === ADMIN_PASSWORD) {
+            sessionStorage.setItem('adminAuthed', 'true');
+            showPanel();
+        } else {
+            document.getElementById('login-error').classList.remove('hidden');
+        }
+    }
+
+    function logout() {
+        sessionStorage.removeItem('adminAuthed');
+        document.getElementById('admin-panel').classList.add('hidden');
+        document.getElementById('login-screen').classList.remove('hidden');
+    }
+
+    function showPanel() {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('admin-panel').classList.remove('hidden');
+        loadData();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (sessionStorage.getItem('adminAuthed') === 'true') showPanel();
+        document.getElementById('login-password').addEventListener('keydown', e => {
+            if (e.key === 'Enter') tryLogin();
+        });
+    });
+
+    // ---------- Data ----------
+    async function loadData() {
+        const saved = localStorage.getItem('siteData');
+        if (saved) {
+            siteData = JSON.parse(saved);
+        } else {
+            const res = await fetch('data.json');
+            siteData = await res.json();
+        }
+        renderEditors();
+    }
+
+    function renderEditors() {
+        document.getElementById('color-primary').value = siteData.colors.primary;
+        document.getElementById('color-accent').value = siteData.colors.accent;
+        document.getElementById('color-gold').value = siteData.colors.gold;
+
+        renderSpecialists();
+        renderServices();
+        renderPrograms();
+    }
+
+    // ---------- Specialists ----------
+    function renderSpecialists() {
+        const container = document.getElementById('specialists-editor');
+        container.innerHTML = '';
+        siteData.specialists.forEach((sp, i) => {
+            const div = document.createElement('div');
+            div.className = 'border border-slate-200 rounded-xl p-4';
+            div.innerHTML = `
+                <div class="flex gap-4 items-start flex-col sm:flex-row">
+                    <img src="${sp.photo}" class="w-24 h-24 rounded-xl object-cover border border-slate-200 flex-shrink-0">
+                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">الاسم (عربي)</label>
+                            <input value="${sp.name}" onchange="updateSpecialist(${i},'name',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">Name (English)</label>
+                            <input value="${sp.nameEn}" onchange="updateSpecialist(${i},'nameEn',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">رقم الهاتف / واتساب</label>
+                            <input value="${sp.phone}" onchange="updateSpecialist(${i},'phone',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" dir="ltr">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-500 mb-1">رابط فيسبوك</label>
+                            <input value="${sp.facebook}" onchange="updateSpecialist(${i},'facebook',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" dir="ltr">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs text-slate-500 mb-1">رابط الصورة (اسم الملف في مجلد images)</label>
+                            <input value="${sp.photo}" onchange="updateSpecialist(${i},'photo',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" dir="ltr">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs text-slate-500 mb-1">نبذة (عربي)</label>
+                            <textarea onchange="updateSpecialist(${i},'bio',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" rows="2">${sp.bio}</textarea>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function updateSpecialist(i, field, value) {
+        siteData.specialists[i][field] = value;
+    }
+
+    // ---------- Services ----------
+    function renderServices() {
+        const container = document.getElementById('services-editor');
+        container.innerHTML = '';
+        siteData.services.forEach((svc, i) => {
+            const div = document.createElement('div');
+            div.className = 'flex flex-col sm:flex-row gap-3 items-start sm:items-center border border-slate-200 rounded-xl p-3';
+            div.innerHTML = `
+                <input value="${svc.name}" onchange="updateService(${i},'name',this.value)" placeholder="اسم الخدمة (عربي)" class="flex-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                <input value="${svc.nameEn}" onchange="updateService(${i},'nameEn',this.value)" placeholder="Service name (English)" class="flex-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                <input value="${svc.price}" onchange="updateService(${i},'price',this.value)" placeholder="السعر" class="w-full sm:w-28 border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                <button onclick="removeService(${i})" class="text-red-400 hover:text-red-600 px-2"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function updateService(i, field, value) {
+        siteData.services[i][field] = value;
+    }
+
+    function addService() {
+        siteData.services.push({ id: 'svc' + Date.now(), name: 'خدمة جديدة', nameEn: 'New Service', price: '' });
+        renderServices();
+    }
+
+    function removeService(i) {
+        siteData.services.splice(i, 1);
+        renderServices();
+    }
+
+    // ---------- Programs ----------
+    function renderPrograms() {
+        const container = document.getElementById('programs-editor');
+        container.innerHTML = '';
+        siteData.programs.forEach((prog, i) => {
+            const div = document.createElement('div');
+            div.className = 'border border-slate-200 rounded-xl p-4 space-y-3';
+            div.innerHTML = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs text-slate-500 mb-1">اسم البرنامج (عربي)</label>
+                        <input value="${prog.name}" onchange="updateProgram(${i},'name',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-500 mb-1">Program name (English)</label>
+                        <input value="${prog.nameEn}" onchange="updateProgram(${i},'nameEn',this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-500 mb-1">السعر</label>
+                    <input value="${prog.price}" onchange="updateProgram(${i},'price',this.value)" class="w-full sm:w-40 border border-slate-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-500 mb-1">تفاصيل البرنامج (سطر لكل نقطة - عربي)</label>
+                    <textarea onchange="updateProgramItems(${i},this.value)" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" rows="3">${prog.items.join('\n')}</textarea>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function updateProgram(i, field, value) {
+        siteData.programs[i][field] = value;
+    }
+
+    function updateProgramItems(i, value) {
+        siteData.programs[i].items = value.split('\n').filter(x => x.trim() !== '');
+    }
+
+    // ---------- Save ----------
+    function saveAll() {
+        siteData.colors.primary = document.getElementById('color-primary').value;
+        siteData.colors.accent = document.getElementById('color-accent').value;
+        siteData.colors.gold = document.getElementById('color-gold').value;
+
+        localStorage.setItem('siteData', JSON.stringify(siteData));
+
+        const banner = document.getElementById('save-banner');
+        banner.classList.remove('hidden');
+        setTimeout(() => banner.classList.add('hidden'), 3000);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>

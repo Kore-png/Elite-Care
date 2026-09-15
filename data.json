@@ -1,0 +1,72 @@
+{
+  "colors": {
+    "primary": "#0ea5e9",
+    "accent": "#10b981",
+    "gold": "#f59e0b"
+  },
+  "specialists": [
+    {
+      "id": "kareem",
+      "name": "كريم جمعة",
+      "nameEn": "Karim Gomaa",
+      "title": "أخصائي تأهيل رياضي - حجامة - مساج استشفائي",
+      "titleEn": "Sports Rehab - Cupping - Therapeutic Massage Specialist",
+      "bio": "متخصص في التأهيل الرياضي والحجامة والمساج الاستشفائي بخبرة تساعدك على التعافي الكامل واستعادة لياقتك.",
+      "bioEn": "Specialized in sports rehabilitation, cupping therapy, and therapeutic massage to help you fully recover and regain your fitness.",
+      "photo": "images/kareem-gomaa.jpg",
+      "phone": "01011751299",
+      "facebook": "https://www.facebook.com/share/1BkBrVqqYH/"
+    },
+    {
+      "id": "sayed",
+      "name": "سيد عبدالفضيل",
+      "nameEn": "Sayed Abdel-Fadil",
+      "title": "أخصائي تأهيل رياضي - حجامة - مساج استشفائي",
+      "titleEn": "Sports Rehab - Cupping - Therapeutic Massage Specialist",
+      "bio": "متخصص في التأهيل الرياضي والحجامة والمساج الاستشفائي بخبرة تساعدك على التعافي الكامل واستعادة لياقتك.",
+      "bioEn": "Specialized in sports rehabilitation, cupping therapy, and therapeutic massage to help you fully recover and regain your fitness.",
+      "photo": "images/sayed-abdelfadil.jpg",
+      "phone": "01152787903",
+      "facebook": "https://www.facebook.com/share/1dvU1Aj6VJ/"
+    },
+    {
+      "id": "fares",
+      "name": "فارس محمد",
+      "nameEn": "Fares Mohamed",
+      "title": "أخصائي تأهيل رياضي - حجامة - مساج استشفائي",
+      "titleEn": "Sports Rehab - Cupping - Therapeutic Massage Specialist",
+      "bio": "متخصص في التأهيل الرياضي والحجامة والمساج الاستشفائي بخبرة تساعدك على التعافي الكامل واستعادة لياقتك.",
+      "bioEn": "Specialized in sports rehabilitation, cupping therapy, and therapeutic massage to help you fully recover and regain your fitness.",
+      "photo": "images/fares-mohamed.jpg",
+      "phone": "01098031363",
+      "facebook": "https://www.facebook.com/share/1DZNFSWXbA/"
+    }
+  ],
+  "services": [
+    { "id": "svc1", "name": "مساج استرخائي (مدة قصيرة)", "nameEn": "Relaxing Massage (Short Duration)", "price": "" },
+    { "id": "svc2", "name": "مساج قياسي (ساعة كاملة)", "nameEn": "Standard Massage (Full Hour)", "price": "" },
+    { "id": "svc3", "name": "مساج ممتد (ساعة ونصف)", "nameEn": "Extended Massage (1.5 Hours)", "price": "" },
+    { "id": "svc4", "name": "مساج الأنسجة العميقة (120 دقيقة)", "nameEn": "Deep Tissue Massage (120 Minutes)", "price": "" },
+    { "id": "svc5", "name": "الحجامة الكاملة", "nameEn": "Full Cupping", "price": "" },
+    { "id": "svc6", "name": "الحجامة المكثفة (إضافية)", "nameEn": "Intensive Cupping (Extra)", "price": "" },
+    { "id": "svc7", "name": "جلسة التصريف اللمفاوي", "nameEn": "Lymphatic Drainage Session", "price": "" }
+  ],
+  "programs": [
+    {
+      "id": "prog1",
+      "name": "برنامج الرعاية النخبوية المميز",
+      "nameEn": "Elite Care Premium Program",
+      "price": "",
+      "items": ["جلسة حجامة علاجية شاملة", "جلسة مساج استرخائي وعلاجي", "العلاج بالانعكاس"],
+      "itemsEn": ["Comprehensive therapeutic cupping session", "Relaxing and therapeutic massage session", "Reflexology"]
+    },
+    {
+      "id": "prog2",
+      "name": "برنامج الرعاية النخبوية المتقدم (إضافي)",
+      "nameEn": "Elite Care Advanced Program (Extra)",
+      "price": "",
+      "items": ["حجامة مكثفة وشاملة لمناطق مختلفة من الجسم", "جلسة مساج عميقة وممتدة لتخفيف التوتر الحاد", "العلاج بالانعكاس لأقصى درجات الاسترخاء والتعافي"],
+      "itemsEn": ["Intensive and comprehensive cupping therapy", "Deep and extended massage session", "Reflexology for maximum relaxation and recovery"]
+    }
+  ]
+}

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرعاية النخبوية - مركز التأهيل والعلاج الطبيعي</title>
+    <meta name="description" content="خدمات احترافية للتأهيل الرياضي والحجامة والمساج العلاجي في مركزنا أو في راحة منزلك.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        /* Card Hover Effects */
+        .member-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .member-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-image {
+            transition: transform 0.6s ease;
+        }
+
+        /* Service Card Hover */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button Hover Effects */
+        .contact-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .contact-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Language Switcher */
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .lang-btn:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-btn:not(.active):hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Flag Icons */
+        .flag-icon {
+            width: 20px;
+            height: 14px;
+            border-radius: 2px;
+            overflow: hidden;
+            display: inline-flex;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* RTL Support */
+        [dir="ltr"] {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        [dir="ltr"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Program Cards */
+        .program-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #10b981);
+        }
+
+        .program-card.premium::before {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+
+        /* Benefit Cards */
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* Accordion Styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 500px;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="font-sans bg-secondary-50 text-secondary-800">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-secondary-900" data-en="Elite Care" data-ar="الرعاية النخبوية">الرعاية النخبوية</h1>
+                        <p class="text-xs text-secondary-500" data-en="Rehabilitation Center" data-ar="مركز التأهيل">مركز التأهيل</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+                    <a href="#team" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors" data-en="Our Team" data-ar="فريقنا">فريقنا</a>
+                    <a href="#services" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
+                    <a href="#programs" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors" data-en="Programs" data-ar="البرامج">البرامج</a>
+
+                    <!-- Language Switcher -->
+                    <div class="flex items-center space-x-2 bg-secondary-100 rounded-full p-1">
+                        <button onclick="switchLanguage('ar')" id="btn-ar" class="lang-btn active flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-semibold">
+                            <span class="flag-icon">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="13.3" fill="#CE1126"/>
+                                    <rect y="13.3" width="60" height="13.3" fill="#FFFFFF"/>
+                                    <rect y="26.6" width="60" height="13.4" fill="#000000"/>
+                                    <path d="M 22,16.5 L 25.5,16.5 L 26.8,13.5 L 28.1,16.5 L 31.6,16.5 L 28.8,18.5 L 30,21.5 L 26.8,19.6 L 23.6,21.5 L 24.8,18.5 Z" fill="#C09300" transform="translate(3,0)"/>
+                                </svg>
+                            </span>
+                            <span>عربي</span>
+                        </button>
+                        <button onclick="switchLanguage('en')" id="btn-en" class="lang-btn flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-semibold">
+                            <span class="flag-icon">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <clipPath id="s"><path d="M0,0 v40 h60 v-40 z"/></clipPath>
+                                    <clipPath id="t"><path d="M30,20 h30 v20 z v20 h-30 z h-30 v-20 z v-20 h30 z"/></clipPath>
+                                    <g clip-path="url(#s)">
+                                        <path d="M0,0 v40 h60 v-40 z" fill="#012169"/>
+                                        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/>
+                                        <path d="M0,0 L60,40 M60,0 L0,40" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+                                        <path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="10"/>
+                                        <path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="6"/>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span>EN</span>
+                        </button>
+                    </div>
+
+                    <a href="#contact" class="bg-gradient-to-r from-primary-600 to-accent-500 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg transition-all transform hover:scale-105" data-en="Book Now" data-ar="احجز الآن">
+                        احجز الآن
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 lg:hidden">
+                    <!-- Mobile Language Switcher -->
+                    <div class="flex items-center space-x-1 bg-secondary-100 rounded-full p-1">
+                        <button onclick="switchLanguage('ar')" id="btn-ar-mobile" class="lang-btn active flex items-center px-3 py-1.5 rounded-full text-xs font-semibold">
+                            <span class="flag-icon" style="width:16px;height:11px;">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="13.3" fill="#CE1126"/>
+                                    <rect y="13.3" width="60" height="13.3" fill="#FFFFFF"/>
+                                    <rect y="26.6" width="60" height="13.4" fill="#000000"/>
+                                    <path d="M 22,16.5 L 25.5,16.5 L 26.8,13.5 L 28.1,16.5 L 31.6,16.5 L 28.8,18.5 L 30,21.5 L 26.8,19.6 L 23.6,21.5 L 24.8,18.5 Z" fill="#C09300" transform="translate(3,0)"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <button onclick="switchLanguage('en')" id="btn-en-mobile" class="lang-btn flex items-center px-3 py-1.5 rounded-full text-xs font-semibold">
+                            <span class="flag-icon" style="width:16px;height:11px;">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <clipPath id="s-m"><path d="M0,0 v40 h60 v-40 z"/></clipPath>
+                                    <clipPath id="t-m"><path d="M30,20 h30 v20 z v20 h-30 z h-30 v-20 z v-20 h30 z"/></clipPath>
+                                    <g clip-path="url(#s-m)">
+                                        <path d="M0,0 v40 h60 v-40 z" fill="#012169"/>
+                                        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/>
+                                        <path d="M0,0 L60,40 M60,0 L0,40" clip-path="url(#t-m)" stroke="#C8102E" stroke-width="4"/>
+                                        <path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="10"/>
+                                        <path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="6"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="text-secondary-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#home" class="block py-2 text-secondary-600 hover:text-primary-600 font-medium" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+                <a href="#team" class="block py-2 text-secondary-600 hover:text-primary-600 font-medium" data-en="Our Team" data-ar="فريقنا">فريقنا</a>
+                <a href="#services" class="block py-2 text-secondary-600 hover:text-primary-600 font-medium" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
+                <a href="#programs" class="block py-2 text-secondary-600 hover:text-primary-600 font-medium" data-en="Programs" data-ar="البرامج">البرامج</a>
+                <a href="#contact" class="block py-3 text-center bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-full font-medium" data-en="Book Now" data-ar="احجز الآن">احجز الآن</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary-900 via-primary-900 to-secondary-900 pt-20">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <!-- Decorative Circles -->
+        <div class="absolute top-20 right-10 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fadeInUp">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-2 mb-8 border border-white/20">
+                    <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
+                    <span class="text-white/90 text-sm font-medium" data-en="Trusted by 1000+ Patients" data-ar="موثوق من أكثر من 1000 مريض">موثوق من أكثر من 1000 مريض</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    <span data-en="Complete Recovery &" data-ar="التعافي الكامل و">التعافي الكامل و</span><br>
+                    <span class="gradient-text" data-en="Therapeutic Care" data-ar="الرعاية العلاجية">الرعاية العلاجية</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed" data-en="Our expert team of three specialists provides integrated sports rehabilitation, cupping therapy, and therapeutic massage — available at our center or in the comfort of your home." data-ar="فريقنا المتخصص من ثلاثة خبراء يقدم تأهيلاً رياضياً متكاملاً وعلاجاً بالحجامة ومساجاً علاجياً — متاح في مركزنا أو في راحة منزلك.">
+                    فريقنا المتخصص من ثلاثة خبراء يقدم تأهيلاً رياضياً متكاملاً وعلاجاً بالحجامة ومساجاً علاجياً — متاح في مركزنا أو في راحة منزلك.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="#team" class="w-full sm:w-auto bg-gradient-to-r from-primary-500 to-accent-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center space-x-2">
+                        <i class="fas fa-users"></i>
+                        <span data-en="Meet Our Team" data-ar="تعرف على فريقنا">تعرف على فريقنا</span>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold text-lg border-2 border-white/30 hover:bg-white/20 transition-all flex items-center justify-center space-x-2">
+                        <i class="fas fa-spa"></i>
+                        <span data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+                    <div class="glass rounded-2xl p-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-white">3+</div>
+                        <div class="text-white/70 text-sm mt-1" data-en="Specialists" data-ar="متخصصين">متخصصين</div>
+                    </div>
+                    <div class="glass rounded-2xl p-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-white">1000+</div>
+                        <div class="text-white/70 text-sm mt-1" data-en="Happy Patients" data-ar="مريض سعيد">مريض سعيد</div>
+                    </div>
+                    <div class="glass rounded-2xl p-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-white">5+</div>
+                        <div class="text-white/70 text-sm mt-1" data-en="Years Experience" data-ar="سنوات خبرة">سنوات خبرة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
+            <a href="#team" class="text-white/60 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 lg:py-32 bg-gradient-to-b from-secondary-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider" data-en="Our Specialists" data-ar="متخصصونا">متخصصونا</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 mt-4 mb-6" data-en="Meet Our Expert Team" data-ar="تعرف على فريقنا الخبير">
+                    تعرف على فريقنا الخبير
+                </h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto text-lg" data-en="Three dedicated professionals committed to your recovery and well-being, offering personalized treatment plans tailored to your needs." data-ar="ثلاثة محترفين مكرّسين لتعافيك ورفاهيتك، يقدمون خطط علاجية مخصصة تناسب احتياجاتك.">
+                    ثلاثة محترفين مكرّسين لتعافيك ورفاهيتك، يقدمون خطط علاجية مخصصة تناسب احتياجاتك.
+                </p>
+            </div>
+
+            <!-- Team Cards Grid (populated dynamically from data.json) -->
+            <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Body Therapy Programs Section -->
+    <section id="programs" class="py-20 lg:py-32 bg-gradient-to-b from-white to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-gold-500 font-semibold text-sm uppercase tracking-wider" data-en="Premium Programs" data-ar="برامج مميزة">برامج مميزة</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 mt-4 mb-6" data-en="Full Body Therapy Programs" data-ar="برامج العلاج الكامل للجسم">
+                    برامج العلاج الكامل للجسم
+                </h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto text-lg" data-en="Comprehensive treatment programs designed for complete recovery and relaxation" data-ar="برامج علاجية شاملة مصممة للتعافي والاسترخاء الكامل">
+                    برامج علاجية شاملة مصممة للتعافي والاسترخاء الكامل
+                </p>
+            </div>
+
+            <!-- Programs Grid (populated dynamically) -->
+            <div id="programs-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Massage Therapy Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider" data-en="Massage Services" data-ar="خدمات المساج">خدمات المساج</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 mt-4 mb-6" data-en="Massage Therapy Services" data-ar="خدمات العلاج بالمساج">
+                    خدمات العلاج بالمساج
+                </h2>
+            </div>
+
+            <!-- Massage Services Grid (populated dynamically) -->
+            <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cupping & Lymphatic Drainage Section -->
+    <section class="py-20 bg-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-accent-500 font-semibold text-sm uppercase tracking-wider" data-en="Specialized Sessions" data-ar="جلسات متخصصة">جلسات متخصصة</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 mt-4 mb-6" data-en="Specialized Cupping & Lymphatic Drainage" data-ar="الحجامة المتخصصة والتصريف اللمفاوي">
+                    الحجامة المتخصصة والتصريف اللمفاوي
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Full Cupping -->
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-accent-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-900 mb-3" data-en="Full Cupping" data-ar="الحجامة الكاملة">الحجامة الكاملة</h3>
+                    <p class="text-secondary-600 leading-relaxed" data-en="To stimulate blood circulation and detoxify the body" data-ar="لتحفيز الدورة الدموية وتنقية الجسم من السموم">
+                        لتحفيز الدورة الدموية وتنقية الجسم من السموم
+                    </p>
+                </div>
+
+                <!-- Intensive Cupping -->
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-primary-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-900 mb-3" data-en="Intensive (Extra) Cupping" data-ar="الحجامة المكثفة (إضافية)">الحجامة المكثفة (إضافية)</h3>
+                    <p class="text-secondary-600 leading-relaxed" data-en="To cover larger areas and improve bodily functions and immunity" data-ar="لتغطية مناطق أكبر وتحسين وظائف الجسم والمناعة">
+                        لتغطية مناطق أكبر وتحسين وظائف الجسم والمناعة
+                    </p>
+                </div>
+
+                <!-- Lymphatic Drainage -->
+                <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-secondary-200 lg:col-span-1">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary-600 to-secondary-800 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary-900 mb-3" data-en="Lymphatic Drainage Session" data-ar="جلسة التصريف اللمفاوي">جلسة التصريف اللمفاوي</h3>
+                    <p class="text-secondary-600 leading-relaxed mb-4" data-en="A gentle, slow massage specifically designed to mobilize lymphatic fluids and provide the body with an immediate feeling of lightness and comfort." data-ar="مساج لطيف وبطيء مصمم خصيصاً لتحريك السوائل اللمفاوية ومنح الجسم شعوراً فورياً بالخفة والراحة.">
+                        مساج لطيف وبطيء مصمم خصيصاً لتحريك السوائل اللمفاوية ومنح الجسم شعوراً فورياً بالخفة والراحة.
+                    </p>
+                    <div class="bg-secondary-50 rounded-xl p-4">
+                        <p class="text-sm text-secondary-600" data-en="Targeted areas: arms, feet, neck, or different parts of the back" data-ar="المناطق المستهدفة: الذراعين، القدمين، الرقبة، أو أجزاء مختلفة من الظهر">
+                            <i class="fas fa-info-circle ml-2"></i>
+                            المناطق المستهدفة: الذراعين، القدمين، الرقبة، أو أجزاء مختلفة من الظهر
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Your Body Needs These Sessions Section -->
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-secondary-900 to-primary-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-accent-400 font-semibold text-sm uppercase tracking-wider" data-en="Benefits" data-ar="الفوائد">الفوائد</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6" data-en="Why Does Your Body Need These Sessions?" data-ar="لماذا يحتاج جسمك إلى هذه الجلسات؟">
+                    لماذا يحتاج جسمك إلى هذه الجلسات؟
+                </h2>
+                <p class="text-white/70 max-w-2xl mx-auto text-lg" data-en="Benefits of services at Elite Care" data-ar="فوائد خدمات الرعاية النخبوية">
+                    فوائد خدمات الرعاية النخبوية
+                </p>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Massage Benefits -->
+                <div class="benefit-card glass rounded-3xl p-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-en="Massage" data-ar="المساج">المساج</h3>
+                    <ul class="space-y-3 text-white/80">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-400 mr-3 mt-1"></i>
+                            <span data-en="Helps relieve nervous and muscular tension" data-ar="يساعد في تخفيف التوتر العصبي والعضلي">يساعد في تخفيف التوتر العصبي والعضلي</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-400 mr-3 mt-1"></i>
+                            <span data-en="Stimulates blood circulation" data-ar="يحفز الدورة الدموية">يحفز الدورة الدموية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-400 mr-3 mt-1"></i>
+                            <span data-en="Provides the body with deep relaxation" data-ar="يمنح الجسم استرخاءً عميقاً">يمنح الجسم استرخاءً عميقاً</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cupping Benefits -->
+                <div class="benefit-card glass rounded-3xl p-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-en="Cupping" data-ar="الحجامة">الحجامة</h3>
+                    <ul class="space-y-3 text-white/80">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-400 mr-3 mt-1"></i>
+                            <span data-en="Works to rid the body of accumulated toxins" data-ar="تعمل على التخلص من السموم المتراكمة في الجسم">تعمل على التخلص من السموم المتراكمة في الجسم</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-400 mr-3 mt-1"></i>
+                            <span data-en="Stimulates blood circulation" data-ar="تحفز الدورة الدموية">تحفز الدورة الدموية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-400 mr-3 mt-1"></i>
+                            <span data-en="Improves the efficiency of the immune system and overall bodily functions" data-ar="تحسن كفاءة جهاز المناعة والوظائف الجسدية العامة">تحسن كفاءة جهاز المناعة والوظائف الجسدية العامة</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Reflexology Benefits -->
+                <div class="benefit-card glass rounded-3xl p-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-en="Reflexology" data-ar="العلاج بالانعكاس">العلاج بالانعكاس</h3>
+                    <ul class="space-y-3 text-white/80">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold-400 mr-3 mt-1"></i>
+                            <span data-en="Stimulates vital internal organs" data-ar="يحفز الأعضاء الداخلية الحيوية">يحفز الأعضاء الداخلية الحيوية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold-400 mr-3 mt-1"></i>
+                            <span data-en="Helps the body restore its natural balance" data-ar="يساعد الجسم على استعادة توازنه الطبيعي">يساعد الجسم على استعادة توازنه الطبيعي</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold-400 mr-3 mt-1"></i>
+                            <span data-en="Restores positive energy" data-ar="يستعيد الطاقة الإيجابية">يستعيد الطاقة الإيجابية</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider" data-en="Get In Touch" data-ar="تواصل معنا">تواصل معنا</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-900 mt-4 mb-6" data-en="Ready To Start Your Recovery?" data-ar="مستعد لبدء رحلة التعافي؟">
+                    مستعد لبدء رحلة التعافي؟
+                </h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto text-lg" data-en="Contact us today to schedule your appointment at our center or request a home visit." data-ar="اتصل بنا اليوم لحجز موعدك في مركزنا أو طلب زيارة منزلية.">
+                    اتصل بنا اليوم لحجز موعدك في مركزنا أو طلب زيارة منزلية.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Contact Card 1 -->
+                <div class="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 text-center border border-primary-100 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 text-white">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-secondary-900" data-en="Call Us" data-ar="اتصل بنا">اتصل بنا</h3>
+                    <p class="text-secondary-500 mb-4" data-en="Available for appointments" data-ar="متاح للحجوزات">متاح للحجوزات</p>
+                    <a href="tel:01011751299" class="text-primary-600 font-semibold hover:text-primary-500 transition-colors">
+                        01011751299
+                    </a>
+                </div>
+
+                <!-- Contact Card 2 -->
+                <div class="bg-gradient-to-br from-accent-50 to-white rounded-2xl p-8 text-center border border-accent-100 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 text-white">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-secondary-900" data-en="Visit Us" data-ar="زورونا">زورونا</h3>
+                    <p class="text-secondary-500 mb-4" data-en="Our center location" data-ar="موقع مركزنا">موقع مركزنا</p>
+                    <span class="text-accent-600 font-semibold" data-en="123 Health Street, City" data-ar="123 شارع الصحة، المدينة">
+                        123 شارع الصحة، المدينة
+                    </span>
+                </div>
+
+                <!-- Contact Card 3 -->
+                <div class="bg-gradient-to-br from-secondary-100 to-white rounded-2xl p-8 text-center border border-secondary-200 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 text-white">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-secondary-900" data-en="Working Hours" data-ar="ساعات العمل">ساعات العمل</h3>
+                    <p class="text-secondary-500 mb-4" data-en="We're here for you" data-ar="نحن هنا من أجلك">نحن هنا من أجلك</p>
+                    <span class="text-blue-600 font-semibold" data-en="Sat-Thu: 9AM - 9PM" data-ar="السبت-الخميس: 9ص - 9م">
+                        السبت-الخميس: 9ص - 9م
+                    </span>
+                </div>
+            </div>
+
+            <!-- Home Visit Banner -->
+            <div class="mt-16 bg-gradient-to-r from-primary-600 to-accent-500 rounded-3xl p-8 lg:p-12 text-center text-white">
+                <div class="flex flex-col lg:flex-row items-center justify-between">
+                    <div class="mb-6 lg:mb-0 lg:text-right">
+                        <h3 class="text-2xl lg:text-3xl font-bold mb-2" data-en="We Come To You!" data-ar="نأتي إليك!">نأتي إليك!</h3>
+                        <p class="text-white/90 text-lg" data-en="All services available at our center or in the comfort of your home." data-ar="جميع الخدمات متاحة في مركزنا أو في راحة منزلك.">جميع الخدمات متاحة في مركزنا أو في راحة منزلك.</p>
+                    </div>
+                    <a href="tel:01011751299" class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105 whitespace-nowrap">
+                        <i class="fas fa-home ml-2"></i><span data-en="Book Home Visit" data-ar="احجز زيارة منزلية">احجز زيارة منزلية</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-950 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold" data-en="Elite Care" data-ar="الرعاية النخبوية">الرعاية النخبوية</h3>
+                            <p class="text-secondary-400 text-sm" data-en="Rehabilitation Center" data-ar="مركز التأهيل">مركز التأهيل</p>
+                        </div>
+                    </div>
+                    <p class="text-secondary-400 leading-relaxed max-w-md" data-en="Professional sports rehabilitation, cupping therapy, and therapeutic massage services. Your journey to wellness starts here." data-ar="خدمات احترافية للتأهيل الرياضي والحجامة والمساج العلاجي. رحلتك نحو العافية تبدأ هنا.">
+                        خدمات احترافية للتأهيل الرياضي والحجامة والمساج العلاجي. رحلتك نحو العافية تبدأ هنا.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4" data-en="Quick Links" data-ar="روابط سريعة">روابط سريعة</h4>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li><a href="#home" class="hover:text-white transition-colors" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors" data-en="Our Team" data-ar="فريقنا">فريقنا</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors" data-en="Services" data-ar="خدماتنا">خدماتنا</a></li>
+                        <li><a href="#programs" class="hover:text-white transition-colors" data-en="Programs" data-ar="البرامج">البرامج</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4" data-en="Services" data-ar="خدماتنا">خدماتنا</h4>
+                    <ul class="space-y-2 text-secondary-400">
+                        <li data-en="Sports Rehabilitation" data-ar="التأهيل الرياضي">التأهيل الرياضي</li>
+                        <li data-en="Cupping Therapy" data-ar="الحجامة">الحجامة</li>
+                        <li data-en="Therapeutic Massage" data-ar="المساج العلاجي">المساج العلاجي</li>
+                        <li data-en="Lymphatic Drainage" data-ar="التصريف اللمفاوي">التصريف اللمفاوي</li>
+                        <li data-en="Reflexology" data-ar="العلاج بالانعكاس">العلاج بالانعكاس</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-secondary-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center text-secondary-500">
+                <p data-en="© 2025 Elite Care Rehabilitation Center. All rights reserved." data-ar="© 2025 مركز الرعاية النخبوية للتأهيل. جميع الحقوق محفوظة.">© 2025 مركز الرعاية النخبوية للتأهيل. جميع الحقوق محفوظة.</p>
+                <a href="admin.html" class="text-secondary-600 hover:text-secondary-400 text-xs transition-colors" data-en="Admin" data-ar="لوحة التحكم">لوحة التحكم</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-full shadow-lg flex items-center justify-center text-xl opacity-0 invisible transition-all hover:shadow-xl hover:scale-110 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        let currentLang = 'ar';
+        let siteData = null;
+
+        // ---------- Data Loading & Rendering ----------
+
+        async function loadSiteData() {
+            // Prefer admin-saved data (localStorage) if present, otherwise fetch data.json
+            const saved = localStorage.getItem('siteData');
+            if (saved) {
+                try {
+                    siteData = JSON.parse(saved);
+                    renderAll();
+                    return;
+                } catch (e) { /* fall through to fetch */ }
+            }
+            try {
+                const res = await fetch('data.json');
+                siteData = await res.json();
+                renderAll();
+            } catch (e) {
+                console.error('Could not load site data', e);
+            }
+        }
+
+        function applyColors(colors) {
+            if (!colors) return;
+            const root = document.documentElement;
+            // Tailwind config is fixed at build time, but we can override key CSS custom properties
+            // used for gradients/accents via a style tag for live color changes.
+            let styleTag = document.getElementById('dynamic-colors');
+            if (!styleTag) {
+                styleTag = document.createElement('style');
+                styleTag.id = 'dynamic-colors';
+                document.head.appendChild(styleTag);
+            }
+            styleTag.textContent = `
+                .gradient-text { background: linear-gradient(135deg, ${colors.primary} 0%, ${colors.accent} 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+                nav a.font-medium:hover, footer a:hover { color: ${colors.primary} !important; }
+            `;
+        }
+
+        function contactLinks(phone) {
+            const digits = phone.replace(/\D/g, '');
+            const intl = digits.startsWith('0') ? '2' + digits : digits; // Egypt country code for WhatsApp
+            return {
+                tel: 'tel:' + digits,
+                whatsapp: 'https://wa.me/' + intl
+            };
+        }
+
+        function renderTeam() {
+            const grid = document.getElementById('team-grid');
+            if (!grid || !siteData) return;
+            grid.innerHTML = '';
+
+            const gradients = [
+                'from-primary-500 to-primary-700',
+                'from-accent-500 to-accent-600',
+                'from-secondary-700 to-secondary-900'
+            ];
+            const badgeText = [
+                { en: 'Sports Rehab', ar: 'التأهيل الرياضي', color: 'text-primary-700' },
+                { en: 'Cupping', ar: 'الحجامة', color: 'text-accent-600' },
+                { en: 'Massage', ar: 'المساج العلاجي', color: 'text-secondary-700' }
+            ];
+
+            siteData.specialists.forEach((sp, i) => {
+                const links = contactLinks(sp.phone);
+                const grad = gradients[i % gradients.length];
+                const badge = badgeText[i % badgeText.length];
+
+                const card = document.createElement('div');
+                card.className = 'member-card bg-white rounded-3xl overflow-hidden shadow-xl border border-secondary-100';
+                card.innerHTML = `
+                    <div class="relative h-80 bg-gradient-to-br ${grad} overflow-hidden">
+                        <img src="${sp.photo}" alt="${sp.name}" class="member-image w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white/90 ${badge.color} px-4 py-1.5 rounded-full text-sm font-semibold" data-en="${badge.en}" data-ar="${badge.ar}">${currentLang === 'ar' ? badge.ar : badge.en}</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-accent-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center">
+                                <i class="fas fa-circle text-[8px] mr-1 animate-pulse"></i>
+                                <span data-en="Available" data-ar="متاح">${currentLang === 'ar' ? 'متاح' : 'Available'}</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 lg:p-8">
+                        <h3 class="text-2xl font-bold text-secondary-900 mb-1">${currentLang === 'ar' ? sp.name : sp.nameEn}</h3>
+                        <p class="text-primary-600 font-semibold mb-4">${currentLang === 'ar' ? sp.title : sp.titleEn}</p>
+                        <p class="text-secondary-600 text-sm leading-relaxed mb-6">${currentLang === 'ar' ? sp.bio : sp.bioEn}</p>
+                        <div class="flex items-center space-x-2 mb-6 text-sm">
+                            <div class="flex items-center text-accent-600 bg-accent-50 px-3 py-1.5 rounded-full">
+                                <i class="fas fa-hospital mr-1.5"></i>
+                                <span>${currentLang === 'ar' ? 'في المركز' : 'At Center'}</span>
+                            </div>
+                            <div class="flex items-center text-primary-600 bg-primary-50 px-3 py-1.5 rounded-full">
+                                <i class="fas fa-home mr-1.5"></i>
+                                <span>${currentLang === 'ar' ? 'زيارة منزلية' : 'Home Visit'}</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="${links.tel}" class="contact-btn flex items-center justify-center space-x-3 w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3.5 rounded-xl font-semibold">
+                                <i class="fas fa-phone-alt relative z-10"></i>
+                                <span class="relative z-10">${currentLang === 'ar' ? 'اتصال' : 'Call'}</span>
+                            </a>
+                            <a href="${links.whatsapp}" target="_blank" class="contact-btn flex items-center justify-center space-x-3 w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3.5 rounded-xl font-semibold">
+                                <i class="fab fa-whatsapp relative z-10"></i>
+                                <span class="relative z-10">WhatsApp</span>
+                            </a>
+                            <a href="${sp.facebook}" target="_blank" class="contact-btn flex items-center justify-center space-x-3 w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-xl font-semibold">
+                                <i class="fab fa-facebook-f relative z-10"></i>
+                                <span class="relative z-10">Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderPrograms() {
+            const grid = document.getElementById('programs-grid');
+            if (!grid || !siteData) return;
+            grid.innerHTML = '';
+
+            siteData.programs.forEach((prog, i) => {
+                const isPremium = i === 0;
+                const items = currentLang === 'ar' ? prog.items : prog.itemsEn;
+                const name = currentLang === 'ar' ? prog.name : prog.nameEn;
+                const priceHtml = prog.price
+                    ? `<p class="text-secondary-900 font-bold text-2xl mb-6">${prog.price}</p>`
+                    : '';
+
+                const card = document.createElement('div');
+                card.className = `program-card ${isPremium ? 'premium' : ''} bg-white rounded-3xl p-8 shadow-xl border ${isPremium ? 'border-gold-200' : 'border-primary-200'}`;
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br ${isPremium ? 'from-gold-400 to-gold-600' : 'from-primary-500 to-primary-700'} rounded-2xl flex items-center justify-center text-white text-2xl">
+                            <i class="fas ${isPremium ? 'fa-crown' : 'fa-star'}"></i>
+                        </div>
+                        <span class="${isPremium ? 'bg-gold-100 text-gold-600' : 'bg-primary-100 text-primary-600'} px-4 py-1.5 rounded-full text-sm font-bold">${isPremium ? (currentLang === 'ar' ? 'مميز' : 'Premium') : (currentLang === 'ar' ? 'متقدم (إضافي)' : 'Advanced (Extra)')}</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary-900 mb-2">${name}</h3>
+                    ${priceHtml}
+                    <ul class="space-y-4 mb-8">
+                        ${items.map(item => `
+                            <li class="flex items-start">
+                                <div class="w-6 h-6 ${isPremium ? 'bg-gold-100 text-gold-600' : 'bg-primary-100 text-primary-600'} rounded-full flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-secondary-700">${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <a href="#contact" class="block w-full text-center ${isPremium ? 'bg-gradient-to-r from-gold-500 to-gold-600' : 'bg-gradient-to-r from-primary-600 to-primary-700'} text-white py-4 rounded-xl font-bold hover:shadow-lg transition-all transform hover:scale-[1.02]">
+                        ${currentLang === 'ar' ? 'احجز هذا البرنامج' : 'Book This Program'}
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            if (!grid || !siteData) return;
+            grid.innerHTML = '';
+
+            const icons = ['fa-clock', 'fa-hourglass-half', 'fa-hourglass-end', 'fa-fire', 'fa-circle', 'fa-expand', 'fa-tint'];
+            const colorSets = [
+                { bg: 'from-primary-50 to-white', border: 'border-primary-100 hover:border-primary-300', iconBg: 'from-primary-400 to-primary-500' },
+                { bg: 'from-accent-50 to-white', border: 'border-accent-100 hover:border-accent-300', iconBg: 'from-accent-400 to-accent-500' },
+                { bg: 'from-secondary-100 to-white', border: 'border-secondary-200 hover:border-secondary-400', iconBg: 'from-secondary-600 to-secondary-700' },
+                { bg: 'from-gold-50 to-white', border: 'border-gold-200 hover:border-gold-400', iconBg: 'from-gold-500 to-gold-600' }
+            ];
+
+            siteData.services.forEach((svc, i) => {
+                const cs = colorSets[i % colorSets.length];
+                const icon = icons[i % icons.length];
+                const name = currentLang === 'ar' ? svc.name : svc.nameEn;
+                const priceHtml = svc.price
+                    ? `<p class="text-secondary-900 font-bold mt-2">${svc.price}</p>`
+                    : '';
+
+                const card = document.createElement('div');
+                card.className = `service-card bg-gradient-to-br ${cs.bg} rounded-2xl p-6 border-2 ${cs.border}`;
+                card.innerHTML = `
+                    <div class="w-14 h-14 bg-gradient-to-br ${cs.iconBg} rounded-xl flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas ${icon}"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-secondary-900 mb-2">${name}</h3>
+                    ${priceHtml}
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function renderAll() {
+            renderTeam();
+            renderPrograms();
+            renderServices();
+            applyColors(siteData.colors);
+        }
+
+        // ---------- Language Switcher ----------
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            document.querySelectorAll('[data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            updateLanguageButtons();
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Re-render dynamic sections in the new language
+            if (siteData) renderAll();
+        }
+
+        function updateLanguageButtons() {
+            const btnEn = document.getElementById('btn-en');
+            const btnAr = document.getElementById('btn-ar');
+            const btnEnMobile = document.getElementById('btn-en-mobile');
+            const btnArMobile = document.getElementById('btn-ar-mobile');
+
+            if (currentLang === 'ar') {
+                btnAr.classList.add('active');
+                btnEn.classList.remove('active');
+                btnArMobile.classList.add('active');
+                btnEnMobile.classList.remove('active');
+            } else {
+                btnAr.classList.remove('active');
+                btnEn.classList.add('active');
+                btnArMobile.classList.remove('active');
+                btnEnMobile.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            loadSiteData().then(() => {
+                if (savedLang && savedLang !== currentLang) {
+                    switchLanguage(savedLang);
+                } else {
+                    updateLanguageButtons();
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Re-observe dynamic cards after render (basic re-scan every second for first 5s)
+        let scanCount = 0;
+        const scanInterval = setInterval(() => {
+            document.querySelectorAll('.member-card, .service-card, .program-card, .benefit-card').forEach(el => {
+                if (!el.dataset.observed) {
+                    el.dataset.observed = 'true';
+                    observer.observe(el);
+                }
+            });
+            scanCount++;
+            if (scanCount > 5) clearInterval(scanInterval);
+        }, 300);
+    </script>
+</body>
+</html>
